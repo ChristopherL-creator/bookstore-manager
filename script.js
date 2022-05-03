@@ -6,11 +6,11 @@ const book2 = new Book ('Fahreneight 451', 'Ray Bradbury', 'Mondadori', 'Romance
 
 console.log(book2.toString())
 
-const book3 = new Book ('Slam Dunk', 'Takehico Inoue', 'Planet-Manga', 'Manga-Spokon', 7, 14, 101, 1990, 2);
+const book3 = new Book ('Slam Dunk', 'Takehico Inoue', 'Planet-Manga', 'Manga-Spokon', 5.45, 14, 101, 1990, 2);
 
 console.log(book3.toString())
 
-const book4 = new Book ('Il grandelibro delle favole', 'Luis Sepùlveda', 'Guanda', 'Kids', 20, 0, 528, 2019, 10);
+const book4 = new Book ('Il grande libro delle favole', 'Luis Sepùlveda', 'Guanda', 'Kids', 20, 0, 528, 2019, 10);
 
 console.log(book4.toString())
 
