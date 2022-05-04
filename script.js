@@ -1,5 +1,7 @@
 const book1 = new Book ('Pandora', ' Susan Stokes-Chapman', 'Neri pozza', 'Romance', 18.05, 16, 324, 2022, 10);
 
+book1.title = 'Pandoro pazzo assurdo';
+
 console.log(book1.toString())
 
 const book2 = new Book ('Fahreneight 451', 'Ray Bradbury', 'Mondadori', 'Romance', 12, 4, 166, 2016, 5);
@@ -14,9 +16,16 @@ const book4 = new Book ('Il grande libro delle favole', 'Luis Sepùlveda', 'Guan
 
 console.log(book4.toString())
 
+const book5 = new Book('Air', 'Michael Jordan')
+
+console.log(book5.toString())
+
 ///--------------------------------------------------------------------------------------------------------------------
 
 const magazine1 = new Magazine ('Focus', 'Gruppo Mondadori', 'Monthly', 187, 'Science', 4.90, 250, 0, new Date(2022, 3, 21) );
+
+ magazine1.releaseDate = new Date (2022, 4, 16);
+  
 
 console.log(magazine1.toString())
 

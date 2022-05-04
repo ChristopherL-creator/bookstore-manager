@@ -19,7 +19,7 @@
 
 class Book extends Pubblication{
 
-    constructor (title, author, editor, type, price, copies, pagesNumber, yop, discount){
+    constructor (title, author, editor='Non disponibile', type='Non classificato', price = -1, copies = 0, pagesNumber = -1, yop = -1, discount = 0){
         super(title, editor, type, price, copies, discount, 10);
         this.author = author
         this.pagesNumber = pagesNumber;

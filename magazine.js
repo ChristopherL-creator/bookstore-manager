@@ -22,8 +22,18 @@ class Magazine extends Pubblication{
         super(title, editor, type, price, copies, discount, 20);
         this.periodicity = periodicity;
         this.release = release;
-        this.releaseDate = releaseDate;
+        this._releaseDate = releaseDate.getTime();
+    }
 
+    get releaseDate(){
+        const date = new Date(this._releaseDate);
+        return date;
+    }
+
+    set releaseDate(value){
+        const time = value.getTime();
+        this._releaseDate = time;
+        
     }
 
     // getPubblicPrice(){

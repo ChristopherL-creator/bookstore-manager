@@ -27,11 +27,11 @@ class Pubblication {
         const margin = this.price * 30 / 100;
         const tax = this.price * this.tax /100;
         const pubblicPrice = this.price - discount + margin + tax
-        const roundedPubblicPrice = this.round(pubblicPrice, 2)
+        const roundedPubblicPrice = Math.round(pubblicPrice, 2)
         return roundedPubblicPrice
     }
 
-    round(number, decimalPlace){
+    static round(number, decimalPlace){             /// Le funzioni si possono dichiarare statiche poichè non hanno nessun "This.", quindi non variano per l'oggetto
         const roundString = number.toFixed(decimalPlace);
         const roundNumber = parseFloat(roundString);
         return roundNumber;
