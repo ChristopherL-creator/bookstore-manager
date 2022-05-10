@@ -53,5 +53,7 @@ padding: 0px;
 }
 
 .price-discount{
-    grid-area: price;
+    grid-area: price; 
+    display: flex; 
+    flex-direction: column;
 }

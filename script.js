@@ -89,10 +89,17 @@ function displayBookWithTemplate(template, container, array) {
 
         const priceContainer = div.querySelector(".price-discount");
         const priceDiv = document.createElement('div');
-        const price = document.createTextNode(book.price);
+        const price = document.createTextNode(book.getPubblicPrice() + '€');
         priceDiv.classList.add('info-item')
         priceDiv.appendChild(price);
-        priceContainer.appendChild(price);
+        priceContainer.appendChild(priceDiv); 
+
+        const discountDiv = document.createElement('div');
+        const discount = document.createTextNode(book.discount + '%');
+        discountDiv.classList.add('price-item')
+        discountDiv.appendChild(discount);
+        priceContainer.appendChild(discount);
+
 
     }
 }

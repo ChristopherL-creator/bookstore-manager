@@ -16,7 +16,7 @@ class Pubblication {
             'Title: ' + this.title + '\n' +
             'Editor: ' + this.editor + '\n' +
             'Type: ' + this.type + '\n' +
-            'Price: ' + this.getPubblicPrice() + ' €\n' +
+            'Price: ' + this.getPubblicPrice() + '€' + '\n' +
             'Copies in store: ' + this.copies + '\n' +
             'Discount in %: ' + this.discount + '%' ;
         return pubblicationString
