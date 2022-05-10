@@ -4,7 +4,7 @@ const book2 = new Book ('Fahreneight 451', 'Ray Bradbury', 'Mondadori', 'Romance
 
 const book3 = new Book ('Slam Dunk', 'Takehico Inoue', 'Planet-Manga', 'Manga-Spokon', 5.45, 14, 101, 1990, 2);
 
-const book4 = new Book ('Il grande libro delle favole', 'Luis Sepùlveda', 'Guanda', 'Kids', 20, 0, 528, 2019, 10);
+const book4 = new Book ('Il grande libro delle favole', 'Luis Sepùlveda', 'Guanda', 'Kids', 20, 2, 528, 2019, 10);
 
 const book5 = new Book('Air', 'Michael Jordan', 'unknown', 'Sport', 11, 50, 316, 2021, 2);
 
@@ -31,20 +31,36 @@ let finishedArray = [];
 
 const bookTemplate = `
 <div class="book-container border">
-<div class="title border">#TITLE</div>
-<div class="type border">#TYPE</div>
-<div class="copies border">#COPIES</div>
-<button class="button border">Acquista</button>
-<div class="author-editor-year border"></div>
-<div class="price-discount border"></div>
+    <div class="title border"> 
+        #TITLE 
+    </div>
+    <div class="type border"> 
+        #TYPE 
+    </div>
+    <div class="copies border"> 
+        #COPIES 
+    </div>
+    <button id='buy-button' class="button border">Acquista</button>
+    <div class="author-editor-year border"> 
+    
+    </div>
+    <div class="price-discount border"> 
+    
+    </div>
 </div>
 `
 
 const finishedTemplate = `
 <div class="book-container border">
-<div class="title border">#TITLE</div>
-<div class="type border">#TYPE</div>
-<div class="author-editor-year border"></div>
+    <div class="title border"> 
+        #TITLE 
+    </div>
+    <div class="type border"> 
+        #TYPE 
+    </div>
+    <div class="author-editor-year border"> 
+    
+    </div>
 </div>
 `
 
@@ -65,7 +81,7 @@ function displayBookWithTemplate(template, container, array) {
     
 
         div.innerHTML = bookTemplate;
-        mainContainer.appendChild(div);
+        mainContainer.appendChild(div);  
 
         const infoContainer = div.querySelector('.author-editor-year');
         const authorDiv = document.createElement('div');
@@ -104,4 +120,17 @@ function displayBookWithTemplate(template, container, array) {
     }
 }
 
-displayBookWithTemplate(bookTemplate, 'book-list-container', bookArray)
+displayBookWithTemplate(bookTemplate, 'book-list-container', bookArray) 
+
+const buyButton = document.getElementById('buy-button'); 
+   
+buyButton.addEventListener('click', function(){
+            bookArray.copies = parseInt(bookArray.copies) + 1; // `parseInt` converts the `value` from a string to a number
+          }, false); 
+
+function removeFinishedBooks(book){
+    bookArray = bookArray.filter(b => b.copies === 0); 
+    displayBookWithTemplate(bookTemplate, 'book-list-container', bookArray); 
+    finishedArray.push(book); 
+    displayBookWithTemplate(finishedTemplate, 'finished-container', finishedArray);
+} 
