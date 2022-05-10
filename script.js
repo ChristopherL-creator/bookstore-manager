@@ -1,24 +1,14 @@
 const book1 = new Book ('Pandora', ' Susan Stokes-Chapman', 'Neri pozza', 'Romance', 18.05, 16, 324, 2022, 10);
 
-book1.title = 'Pandoro pazzo assurdo';
-
-console.log(book1.toString())
-
 const book2 = new Book ('Fahreneight 451', 'Ray Bradbury', 'Mondadori', 'Romance', 12, 4, 166, 2016, 5);
-
-console.log(book2.toString())
 
 const book3 = new Book ('Slam Dunk', 'Takehico Inoue', 'Planet-Manga', 'Manga-Spokon', 5.45, 14, 101, 1990, 2);
 
-console.log(book3.toString())
-
 const book4 = new Book ('Il grande libro delle favole', 'Luis Sepùlveda', 'Guanda', 'Kids', 20, 0, 528, 2019, 10);
 
-console.log(book4.toString())
+const book5 = new Book('Air', 'Michael Jordan', 'unknown', 'Sport', 11, 50, 316, 2021, 2);
 
-const book5 = new Book('Air', 'Michael Jordan')
 
-console.log(book5.toString())
 
 ///--------------------------------------------------------------------------------------------------------------------
 
@@ -26,18 +16,85 @@ const magazine1 = new Magazine ('Focus', 'Gruppo Mondadori', 'Monthly', 187, 'Sc
 
  magazine1.releaseDate = new Date (2022, 4, 16);
   
-
-console.log(magazine1.toString())
-
 const magazine2 = new Magazine ('Oggi', 'RCS Mediagroup', 'Weekly', 7, 'Variety', 2, 1000, 1, new Date(2022, 1, 17));
-
-console.log(magazine2.toString())
 
 const magazine3 = new Magazine ('Shonen Jump', 'Shueisha', 'Weekly', 2122, 'Manga', 2, 2000000, 3, new Date (2017, 9, 5));
 
-
-console.log(magazine3.toString())
-
 const magazine4 = new Magazine ('La settimana enigmistica', 'Francesco Baggi Sisini', 'Weekly', 4212, 'Game', 1.50, 100, 90, new Date(2012, 11, 15));
 
-console.log(magazine4.toString())
+//-----------------------------------------------------------------------------------------------
+
+
+let bookArray = [book1, book2, book3, book4, book5];
+
+let finishedArray = [];
+
+const bookTemplate = `
+<div class="book-container border">
+<div class="title border">#TITLE</div>
+<div class="type border">#TYPE</div>
+<div class="copies border">#COPIES</div>
+<button class="button border">Acquista</button>
+<div class="author-editor-year border"></div>
+<div class="price-discount border"></div>
+</div>
+`
+
+const finishedTemplate = `
+<div class="book-container border">
+<div class="title border">#TITLE</div>
+<div class="type border">#TYPE</div>
+<div class="author-editor-year border"></div>
+</div>
+`
+
+function displayBookWithTemplate(template, container, array) {
+    
+    const mainContainer = document.getElementById(container);
+
+    mainContainer.innerHTML = '';
+
+    for (let i = 0; i < array.length; i++) {
+        const book = array[i];
+
+        const div = document.createElement('div');
+
+        const bookTemplate = template.replace('#TITLE', book.title)
+                                     .replace('#TYPE', 'Type: ' + book.type)
+                                     .replace('#COPIES', 'Copies in store: ' + book.copies);
+    
+
+        div.innerHTML = bookTemplate;
+        mainContainer.appendChild(div);
+
+        const infoContainer = div.querySelector('.author-editor-year');
+        const authorDiv = document.createElement('div');
+        const author = document.createTextNode(book.author);
+        authorDiv.classList.add('info-item')
+        authorDiv.appendChild(author);
+        infoContainer.appendChild(authorDiv);
+
+        const editorDiv = document.createElement('div');
+        const editor = document.createTextNode(book.editor);
+        editorDiv.classList.add('info-item')
+        editorDiv.appendChild(editor);
+        infoContainer.appendChild(editorDiv);
+
+        
+        const yopDiv = document.createElement('div');
+        const yop = document.createTextNode(book.yop);
+        yopDiv.classList.add('info-item')
+        yopDiv.appendChild(yop);
+        infoContainer.appendChild(yopDiv);
+
+        const priceContainer = div.querySelector(".price-discount");
+        const priceDiv = document.createElement('div');
+        const price = document.createTextNode(book.price);
+        priceDiv.classList.add('info-item')
+        priceDiv.appendChild(price);
+        priceContainer.appendChild(price);
+
+    }
+}
+
+displayBookWithTemplate(bookTemplate, 'book-list-container', bookArray)

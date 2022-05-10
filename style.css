@@ -1,3 +1,57 @@
 html, body{
-background-color: gray;
+background-color: antiquewhite;
+height: 100%;
+width: 100%;
+margin: 0px;
+padding: 0px;
+}
+
+.border{
+    border: solid;
+    border-width: 2px;
+    border-color: red;
+}
+
+.book-list-container{
+    margin: auto;
+    width: fit-content;
+}
+
+.book-container{
+    margin: 8px;
+    display: grid;
+    grid-template-columns: 2fr, 1fr, 2fr;
+    grid-template-rows: 1fr 3fr 2fr;
+    grid-template-areas: 'title type .'
+                        'aey . button'
+                        'aey copies price';
+}
+
+.title{
+    grid-area: title;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.type{
+    grid-area: type;
+}
+
+.copies{
+    grid-area: copies;
+}
+
+.author-editor-year{
+    grid-area: aey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button{
+    grid-area: button;
+}
+
+.price-discount{
+    grid-area: price;
 }
