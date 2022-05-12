@@ -30,35 +30,35 @@ let bookArray = [book1, book2, book3, book4, book5];
 let finishedArray = [];
 
 const bookTemplate = `
-<div class="book-container border">
-    <div class="title border"> 
+<div class="book-container ">
+    <div class="title"> 
         #TITLE 
     </div>
-    <div class="type border"> 
+    <div class="type"> 
         #TYPE 
     </div>
-    <div class="copies border"> 
+    <div class="copies"> 
         #COPIES 
     </div>
   
-    <div class="author-editor-year border"> 
+    <div class="author-editor-year "> 
     
     </div>
-    <div class="price-discount border"> 
+    <div class="price-discount "> 
     
     </div>
 </div>
 `
 
 const finishedTemplate = `
-<div class="book-container border">
-    <div class="title border"> 
+<div class="book-container ">
+    <div class="title"> 
         #TITLE 
     </div>
-    <div class="type border"> 
+    <div class="type"> 
         #TYPE 
     </div>
-    <div class="author-editor-year border"> 
+    <div class="author-editor-year"> 
     
     </div>
 </div>
@@ -116,7 +116,6 @@ function displayBookWithTemplate(template, container, array) {
         const priceContainer = div.querySelector(".price-discount");
         const priceDiv = document.createElement('div');
         const price = document.createTextNode(book.getPubblicPrice() + '€');
-        priceDiv.classList.add('info-item');
         priceDiv.appendChild(price);
         priceContainer.appendChild(priceDiv); 
 
@@ -124,7 +123,7 @@ function displayBookWithTemplate(template, container, array) {
         const discount = document.createTextNode(book.discount + '%');
         discountDiv.classList.add('price-item')
         discountDiv.appendChild(discount);
-        priceContainer.appendChild(discount);
+        priceContainer.appendChild(discountDiv);
         bookContainer.appendChild(priceContainer);
         mainContainer.appendChild(bookContainer); 
 
